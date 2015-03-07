@@ -11,6 +11,10 @@ This Dockerfile provides an image for running tinc 1.1 (pre release, as packaged
 
 The default entrypoint of the container is tinc, so you can directly issue commands to tinc, for example `docker run jenserat/tinc init` (which will run `tinc init` inside the container) to have tinc create the basic configuration for you. Tinc's configuration is persisted as a volume, you can also share a host folder in `/etc/tinc`.
 
+tinc requires access to `/dev/net/tun`. Allow the container access to the device and grant the `NET_ADMIN` capability:
+
+    --device=/dev/net/tun --cap-add NET_ADMIN
+
 To make the VPN available to the host, and not only (linked) containers, use `--net=host`.
 
 A reasonable basic run command loading persisted configuratino from `/srv/tinc` and creating the VPN on the host network would be
@@ -18,8 +22,12 @@ A reasonable basic run command loading persisted configuratino from `/srv/tinc` 
     docker run -d \
         --name tinc \
         --net=host \
+        --device=/dev/net/tun \
+        --cap-add NET_ADMIN \
         --volume /srv/tinc:/etc/tinc \
-        jenserat/tinc start
+        jenserat/tinc start -D
+
+Everything following `start` are parameters to `tincd`, `-D` makes sure the daemon stays active and does not actually daemonize, which would terminate the container.
 
 ## Administration and Maintenance
 
