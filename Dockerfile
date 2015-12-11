@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:experimental
 MAINTAINER Jens Erat <email@jenserat.de>
 
 # Remove SUID programs
