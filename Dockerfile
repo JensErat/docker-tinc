@@ -5,6 +5,7 @@ MAINTAINER Jens Erat <email@jenserat.de>
 RUN for i in `find / -perm +6000 -type f 2>/dev/null`; do chmod a-s $i; done
 
 RUN echo "deb http://http.debian.net/debian experimental main" >> /etc/apt/sources.list && \
+    mkdir -p /etc/tinc/nets.boot && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y net-tools && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y -t experimental tinc && \
