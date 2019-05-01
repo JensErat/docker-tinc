@@ -17,7 +17,7 @@ tinc requires access to `/dev/net/tun`. Allow the container access to the device
 
 To make the VPN available to the host, and not only (linked) containers, use `--net=host`.
 
-A reasonable basic run command loading persisted configuratino from `/srv/tinc` and creating the VPN on the host network would be
+A reasonable basic run command loading persisted configuration from `/srv/tinc` and creating the VPN on the host network would be
 
     docker run -d \
         --name tinc \
