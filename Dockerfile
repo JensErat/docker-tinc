@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Jean-Christophe Hoelt <hoelt@fovea.cc>
 
-ENV TINC_VERSION=1.1~pre17-1.1
+ENV TINC_VERSION=1.1~pre17-1.2
 
 # Remove SUID programs
 RUN for i in `find / -perm +6000 -type f 2>/dev/null`; do chmod a-s $i; done
