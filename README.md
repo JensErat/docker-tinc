@@ -1,6 +1,9 @@
 # tinc for Docker
 
-Dockerfile (c) 2015 Jens Erat, email@jenserat.de  
+Dockerfile (c) 2015 Jens Erat, email@jenserat.de
+
+Contributor: Jean-Christophe Hoelt
+
 Licensed under BSD license
 
 > [tinc](http://www.tinc-vpn.org) is a Virtual Private Network (VPN) daemon that uses tunnelling and encryption to create a secure private network between hosts on the Internet.
